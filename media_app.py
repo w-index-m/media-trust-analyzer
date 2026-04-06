@@ -474,15 +474,20 @@ def render_media_tab(media_list, prefix):
 
         # レーダーチャート（Top4）
         top4 = sorted(media_list, key=lambda m: m["recommend"], reverse=True)[:4]
-        colors = ["#ef4444","#3b82f6","#f97316","#a855f7"]
+        colors = [
+            ("rgba(239,68,68,1)",  "rgba(239,68,68,0.12)"),
+            ("rgba(59,130,246,1)", "rgba(59,130,246,0.12)"),
+            ("rgba(249,115,22,1)", "rgba(249,115,22,0.12)"),
+            ("rgba(168,85,247,1)", "rgba(168,85,247,0.12)"),
+        ]
         fig2 = go.Figure()
         for i, m in enumerate(top4):
             vals = [m["scores"][k] for k in SCORE_AXES]
             fig2.add_trace(go.Scatterpolar(
                 r=vals + [vals[0]], theta=SCORE_AXES + [SCORE_AXES[0]],
                 fill="toself", name=m["name"],
-                line_color=colors[i],
-                fillcolor=colors[i].replace(")", ",0.12)").replace("rgb", "rgba") if colors[i].startswith("rgb") else colors[i]+"28",
+                line_color=colors[i][0],
+                fillcolor=colors[i][1],
             ))
         fig2.update_layout(
             polar=dict(
