@@ -462,12 +462,12 @@ def render_media_tab(media_list, prefix):
             hovertemplate="%{y}: %{x}点<extra></extra>",
         ))
         fig.update_layout(
-            title="政治経済おすすめ度ランキング",
+            title=dict(text="政治経済おすすめ度ランキング", font=dict(color="#f1f5f9", size=15)),
             height=max(320, len(media_list)*36),
-            xaxis=dict(range=[0,112], gridcolor="rgba(255,255,255,0.05)", color="#64748b"),
-            yaxis=dict(color="#94a3b8"),
+            xaxis=dict(range=[0,112], gridcolor="rgba(255,255,255,0.05)", color="#e2e8f0", tickfont=dict(color="#e2e8f0")),
+            yaxis=dict(color="#e2e8f0", tickfont=dict(color="#e2e8f0")),
             plot_bgcolor="#0a0e1a", paper_bgcolor="#0a0e1a",
-            font=dict(color="#94a3b8", family="'Noto Sans JP', sans-serif"),
+            font=dict(color="#e2e8f0", family="'Noto Sans JP', sans-serif"),
             margin=dict(l=10, r=50, t=40, b=20),
         )
         st.plotly_chart(fig, use_container_width=True)
@@ -491,13 +491,13 @@ def render_media_tab(media_list, prefix):
             ))
         fig2.update_layout(
             polar=dict(
-                radialaxis=dict(range=[0,100], gridcolor="rgba(255,255,255,0.1)", color="#64748b"),
-                angularaxis=dict(gridcolor="rgba(255,255,255,0.1)", color="#94a3b8"),
+                radialaxis=dict(range=[0,100], gridcolor="rgba(255,255,255,0.15)", color="#e2e8f0", tickfont=dict(color="#e2e8f0")),
+                angularaxis=dict(gridcolor="rgba(255,255,255,0.15)", color="#f1f5f9", tickfont=dict(color="#f1f5f9")),
                 bgcolor="#0a0e1a",
             ),
-            paper_bgcolor="#0a0e1a", font=dict(color="#94a3b8"),
-            legend=dict(orientation="h", y=-0.15, font=dict(size=11)),
-            height=400, title="Top4 5軸レーダー比較",
+            paper_bgcolor="#0a0e1a", font=dict(color="#e2e8f0"),
+            legend=dict(orientation="h", y=-0.15, font=dict(size=11, color="#f1f5f9")),
+            height=400, title=dict(text="Top4 5軸レーダー比較", font=dict(color="#f1f5f9", size=15)),
             margin=dict(t=40, b=80),
         )
         st.plotly_chart(fig2, use_container_width=True)
@@ -569,12 +569,12 @@ with tab_cmp:
             ))
         fig.update_layout(
             polar=dict(
-                radialaxis=dict(range=[0,100], gridcolor="rgba(255,255,255,0.1)", color="#64748b"),
-                angularaxis=dict(gridcolor="rgba(255,255,255,0.1)", color="#94a3b8"),
+                radialaxis=dict(range=[0,100], gridcolor="rgba(255,255,255,0.15)", color="#e2e8f0", tickfont=dict(color="#e2e8f0")),
+                angularaxis=dict(gridcolor="rgba(255,255,255,0.15)", color="#f1f5f9", tickfont=dict(color="#f1f5f9")),
                 bgcolor="#0a0e1a",
             ),
-            paper_bgcolor="#0a0e1a", font=dict(color="#94a3b8"),
-            legend=dict(orientation="h", y=-0.15),
+            paper_bgcolor="#0a0e1a", font=dict(color="#e2e8f0"),
+            legend=dict(orientation="h", y=-0.15, font=dict(color="#f1f5f9", size=12)),
             height=440, margin=dict(t=30, b=80),
         )
         st.plotly_chart(fig, use_container_width=True)
@@ -625,13 +625,14 @@ with tab_inst:
             ))
         fig.update_layout(
             barmode="group",
-            title=f"{region} — 評価機関別信頼度スコア比較",
+            title=dict(text=f"{region} — 評価機関別信頼度スコア比較", font=dict(color="#f1f5f9", size=15)),
             yaxis=dict(range=[0,115], title="スコア（100点満点換算）",
-                       gridcolor="rgba(200,200,200,0.15)", color="#94a3b8"),
-            xaxis=dict(color="#94a3b8"),
+                       gridcolor="rgba(200,200,200,0.15)", color="#e2e8f0",
+                       tickfont=dict(color="#e2e8f0")),
+            xaxis=dict(color="#e2e8f0", tickfont=dict(color="#e2e8f0")),
             plot_bgcolor="#0a0e1a", paper_bgcolor="#0a0e1a",
-            font=dict(color="#94a3b8"),
-            legend=dict(orientation="h", y=-0.3, font=dict(size=10)),
+            font=dict(color="#e2e8f0"),
+            legend=dict(orientation="h", y=-0.3, font=dict(size=11, color="#f1f5f9")),
             hovermode="x unified", height=460,
             margin=dict(l=60, r=20, t=50, b=120),
         )
@@ -653,10 +654,10 @@ with tab_inst:
         ))
         fig2.update_layout(
             height=280, plot_bgcolor="#0a0e1a", paper_bgcolor="#0a0e1a",
-            font=dict(color="#94a3b8"),
+            font=dict(color="#e2e8f0"),
             margin=dict(l=200, r=20, t=20, b=60),
-            xaxis=dict(tickangle=-30, color="#94a3b8"),
-            yaxis=dict(color="#94a3b8"),
+            xaxis=dict(tickangle=-30, color="#e2e8f0", tickfont=dict(color="#e2e8f0")),
+            yaxis=dict(color="#e2e8f0", tickfont=dict(color="#e2e8f0")),
         )
         st.plotly_chart(fig2, use_container_width=True)
 
