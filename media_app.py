@@ -569,12 +569,24 @@ with tab_cmp:
             ))
         fig.update_layout(
             polar=dict(
-                radialaxis=dict(range=[0,100], gridcolor="rgba(255,255,255,0.15)", color="#e2e8f0", tickfont=dict(color="#e2e8f0")),
-                angularaxis=dict(gridcolor="rgba(255,255,255,0.15)", color="#f1f5f9", tickfont=dict(color="#f1f5f9")),
+                radialaxis=dict(
+                    range=[0,100],
+                    gridcolor="rgba(255,255,255,0.25)",
+                    color="#ffffff",
+                    tickfont=dict(color="#ffffff", size=12),
+                    linecolor="rgba(255,255,255,0.3)",
+                ),
+                angularaxis=dict(
+                    gridcolor="rgba(255,255,255,0.25)",
+                    color="#ffffff",
+                    tickfont=dict(color="#ffffff", size=14),
+                    linecolor="rgba(255,255,255,0.3)",
+                ),
                 bgcolor="#0a0e1a",
             ),
-            paper_bgcolor="#0a0e1a", font=dict(color="#e2e8f0"),
-            legend=dict(orientation="h", y=-0.15, font=dict(color="#f1f5f9", size=12)),
+            paper_bgcolor="#0a0e1a",
+            font=dict(color="#ffffff"),
+            legend=dict(orientation="h", y=-0.15, font=dict(color="#ffffff", size=13)),
             height=440, margin=dict(t=30, b=80),
         )
         st.plotly_chart(fig, use_container_width=True)
